@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Удалить профиль</h1>
+    <p>Удалить : {{ user.username }}?</p>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <input type="submit" action="" value="Да, удалить">
+    </form>
+{% endblock %}

@@ -1,0 +1,18 @@
+
+{% load static %}
+{% block content %}
+<h2>Личный кабинет</h2>
+<a href="{% url 'base' %}">Главная</a><br><br>
+<a href="{% url 'update' user.id%}">Обновить свои данные</a><br><br>
+<a href="{% url 'delete' user.id%}">Удалить себя</a>
+
+
+{% for i in cabinet %}
+<h5>Имя: {{i.username}}</h5>
+<p>Почта: {{i.email}}</p><br><br>
+{% if i.photo_profile %}
+<img src="{{i.photo_profile.url}}" width="450px" height="300px"/>
+{% endif %}
+{% endfor %}
+
+{% endblock %}
