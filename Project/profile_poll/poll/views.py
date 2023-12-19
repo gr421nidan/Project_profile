@@ -10,7 +10,8 @@ from .models import *
 from django.views.generic.edit import DeleteView, UpdateView
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
-from time import timezone
+
+from django.utils.timezone import now
 from datetime import datetime
 
 
@@ -78,7 +79,7 @@ class IndexView(ListView):
     context_object_name = 'latest_question_list'
 
     def get_queryset(self):
-        return Question.objects.filter(end_date__gte=timezone.now())
+        return Question.objects.filter(end_date__gte=now())
 
 
 class DetailView(generic.DetailView):
